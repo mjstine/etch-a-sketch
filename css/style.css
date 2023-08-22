@@ -166,8 +166,6 @@ body {
 }
 
 .content__grid-item {
-  width: calc(512px / 16);
-  height: cacl(512px / 16);
   border: 1px solid #d8d9da;
 }
 
