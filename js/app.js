@@ -2,10 +2,14 @@
  * Select the container for the grid and the button to change the grid size.
  * Initialize the default grid size.
  */
-const gridContainer = document.querySelector(".content__grid");
-const newGridBtn = document.querySelector("#gridChanger");
-let currentGridSize = 16;
+const grid = document.querySelector(".grid");
+const enterBtn = document.querySelector("#enterBtn");
+const resetBtn = document.querySelector("#resetBtn");
+const newGridSize = document.querySelector("#newGridSize");
+
+let currentGridSize = newGridSize.valueAsNumber;
 let totalGridSize = currentGridSize * currentGridSize;
+let isDrawing = false;
 
 /**
  * Create a grid of specified size and update grid item dimensions.
@@ -14,8 +18,8 @@ let totalGridSize = currentGridSize * currentGridSize;
 const createGrid = (gridSizeValue) => {
   for (let i = 0; i < totalGridSize; i++) {
     const gridItem = document.createElement("div");
-    gridItem.classList.add("content__grid-item");
-    gridContainer.appendChild(gridItem);
+    gridItem.classList.add("grid__item");
+    grid.appendChild(gridItem);
   }
   updateGridItemSize(gridSizeValue);
 };
@@ -25,7 +29,7 @@ const createGrid = (gridSizeValue) => {
  * @param {number} gridSizeValue - The new grid size.
  */
 const updateGridItemSize = (gridSizeValue) => {
-  const gridItems = document.querySelectorAll(".content__grid-item");
+  const gridItems = document.querySelectorAll(".grid__item");
   const itemSize = `calc(512px / ${gridSizeValue})`;
   gridItems.forEach((item) => {
     item.style.width = itemSize;
@@ -33,9 +37,15 @@ const updateGridItemSize = (gridSizeValue) => {
   });
 };
 
-createGrid(currentGridSize);
-
-let isDrawing = false;
+/**
+ * Removes all grid items from the grid container.
+ */
+const removeGrid = () => {
+  const gridItems = document.querySelectorAll(".grid__item");
+  gridItems.forEach((item) => {
+    grid.removeChild(item);
+  });
+};
 
 /**
  * Listen for the mouse down event to start drawing.
@@ -50,7 +60,7 @@ document.addEventListener("mousedown", (event) => {
  * Listen for the mouse move event to draw on the grid.
  */
 document.addEventListener("mousemove", (event) => {
-  if (isDrawing && event.target.classList.contains("content__grid-item")) {
+  if (isDrawing && event.target.classList.contains("grid__item")) {
     event.target.style.backgroundColor = "#000000";
   }
 });
@@ -65,40 +75,28 @@ document.addEventListener("mouseup", () => {
 /**
  * Listen for the button click event to change the grid size.
  */
-newGridBtn.addEventListener("click", () => {
-  let newSize;
-  let intNewSize;
-
-  while (newSize !== null) {
-    newSize = prompt("Enter your desired grid size: (1-100)");
-
-    if (newSize === null) {
-      break; // Exit the loop on prompt cancellation
-    }
-
-    if (newSize.trim() === "") {
-      alert("ERROR! Please enter a value.");
-      continue; // Prompt again if input is empty
-    }
-
-    if (!isNaN(newSize)) {
-      intNewSize = parseInt(newSize);
-      if (intNewSize >= 1 && intNewSize <= 100) {
-        currentGridSize = intNewSize;
-        totalGridSize = currentGridSize * currentGridSize;
-        break;
-      } else {
-        alert("ERROR! Enter an integer between 1 and 100.");
-      }
-    } else {
-      alert("ERROR! Integers only.");
-    }
+enterBtn.addEventListener("click", () => {
+  let newSize = newGridSize.valueAsNumber;
+  if (newSize > 64 || newSize < 16) {
+    alert("ERROR! Enter an integer between 16 and 64.");
+  } else {
+    currentGridSize = newSize;
+    totalGridSize = currentGridSize * currentGridSize;
   }
 
-  const gridItems = document.querySelectorAll(".content__grid-item");
-  gridItems.forEach((item) => {
-    gridContainer.removeChild(item);
-  });
-
+  removeGrid();
   createGrid(currentGridSize);
 });
+
+/**
+ * Event listener function for the "reset" button click event.
+ * Resets the background color of all grid items to the default color.
+ */
+resetBtn.addEventListener("click", () => {
+  const gridItems = document.querySelectorAll(".grid__item");
+  gridItems.forEach((item) => {
+    item.style.backgroundColor = "#EEEEEE";
+  });
+});
+
+window.addEventListener("load", () => createGrid(currentGridSize));
