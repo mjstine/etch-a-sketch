@@ -180,6 +180,7 @@ body {
   background-color: #F9D949;
   padding: 16px;
   border-radius: 8px;
+  max-height: 512px;
 }
 
 label, .aside__btn, .aside__input {
@@ -211,8 +212,6 @@ label {
 .main {
   flex: 2;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .grid {
