@@ -10,6 +10,7 @@ const newGridSize = document.querySelector("#newGridSize");
 let currentGridSize = newGridSize.valueAsNumber;
 let totalGridSize = currentGridSize * currentGridSize;
 let isDrawing = false;
+let isUndo = false;
 
 /**
  * Create a grid of specified size and update grid item dimensions.
@@ -48,11 +49,22 @@ const removeGrid = () => {
 };
 
 /**
+ * Listen for the mouse right-click event.
+ */
+document.addEventListener("contextmenu", (event) => {
+  event.preventDefault()
+})
+
+/**
  * Listen for the mouse down event to start drawing.
  */
 document.addEventListener("mousedown", (event) => {
   if (event.button === 0) {
     isDrawing = true;
+  }
+
+  if (event.button === 2) {
+    isUndo = true
   }
 });
 
@@ -63,6 +75,10 @@ document.addEventListener("mousemove", (event) => {
   if (isDrawing && event.target.classList.contains("grid__item")) {
     event.target.style.backgroundColor = "#000000";
   }
+
+  if (isUndo && event.target.classList.contains("grid__item")) {
+    event.target.style.backgroundColor = "#EEEEEE";
+  }
 });
 
 /**
@@ -70,6 +86,7 @@ document.addEventListener("mousemove", (event) => {
  */
 document.addEventListener("mouseup", () => {
   isDrawing = false;
+  isUndo = false;
 });
 
 /**
