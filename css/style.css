@@ -136,14 +136,11 @@ table {
 
 body {
   font-family: "Open Sans", sans-serif;
-  color: #F0F0F0;
-  background-color: #3C486B;
-
-
+  color: #f0f0f0;
+  background-color: #3c486b;
 }
 
 .container {
- 
   display: flex;
   flex-direction: column;
   width: 1024px;
@@ -165,6 +162,8 @@ body {
 .content {
   flex: 1;
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 75%;
   margin: 0 auto;
   gap: 16px;
@@ -177,35 +176,37 @@ body {
   justify-content: center;
   align-items: center;
   gap: 8px;
-  background-color: #F9D949;
+  background-color: #f9d949;
   padding: 16px;
   border-radius: 8px;
-  max-height: 512px;
+  height: 512px;
 }
 
-label, .aside__btn, .aside__input {
+label,
+.aside__btn,
+.aside__input {
   width: 100%;
 }
 
 label {
-  color: #3C486B;
+  color: #3c486b;
 }
 
 .aside__input {
   font-size: 16px;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   padding: 8px 4px;
-  border: 2px solid #3C486B;
+  border: 2px solid #3c486b;
   border-radius: 8px;
 }
 
 .aside__btn {
   font-size: 16px;
-  color: #F0F0F0;
+  color: #f0f0f0;
   cursor: pointer;
-  background-color: #F45050;
+  background-color: #f45050;
   padding: 8px 16px;
-  border: 2px solid #3C486B;
+  border: 2px solid #3c486b;
   border-radius: 8px;
 }
 
@@ -219,8 +220,7 @@ label {
   flex-wrap: wrap;
   width: 512px;
   height: 512px;
-  background-color: #EEEEEE;
-  
+  background-color: #eeeeee;
 }
 
 .grid__item {
@@ -232,6 +232,6 @@ label {
 }
 
 .footer__text {
-  font-size: 12.80px;
+  font-size: 12.8px;
   text-align: center;
 }
