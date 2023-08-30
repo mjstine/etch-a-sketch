@@ -4,6 +4,8 @@
 
 - [Introduction](#introduction)
 - [Demo](#demo)
+- [What is the Etch-A-Sketch Project?](#what-is-the-etch-a-sketch-project)
+- [Why I Started This Project](#why-i-started-this-project)
 - [Acknowledgments](#acknowledgments)
 - [Usage](#usage)
 - [Contributions and Feedback](#contributions-and-feedback)
