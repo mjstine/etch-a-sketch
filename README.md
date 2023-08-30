@@ -24,6 +24,16 @@ Explore this project to see how HTML, CSS, and JavaScript can be used to create 
 
 See the Etch-A-Sketch in action: [Live Demo](https://mjstine.github.io/etch-a-sketch/)
 
+## What is the Etch-A-Sketch Project?
+
+The Etch-A-Sketch project is a web application that simulates the classic Etch-A-Sketch toy digitally. It allows users to draw and create artwork on a virtual grid canvas. This project showcases the implementation of interactive features using JavaScript, enabling users to draw with different colors and sizes, adjust the grid size, and clear the canvas.
+
+## Why I Started This Project
+
+As a passionate developer, I embarked on the Etch-A-Sketch project to explore the creative side of web development. The idea of bringing a beloved childhood toy to the digital realm fascinated me. This project provided an opportunity to deepen my understanding of JavaScript event handling, DOM manipulation, and user interactions.
+
+Additionally, I wanted to showcase the versatility of HTML, CSS, and JavaScript in creating interactive and engaging web applications. By recreating the Etch-A-Sketch experience, I aimed to demonstrate the power of these technologies in delivering enjoyable user experiences.
+
 ## Acknowledgments
 
 This project was made possible with the help of various resources and inspirations:
