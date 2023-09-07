@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -122,7 +122,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
@@ -135,7 +135,7 @@ table {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #f0f0f0;
   background-color: #3c486b;
 }
@@ -143,29 +143,41 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  width: 1024px;
-  height: 100vh;
+  max-width: 80dvw;
+  min-height: 100dvh;
   margin: 0 auto;
 }
 
 .header {
-  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 8px;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.header > * {
+  flex: 1;
 }
 
 .header__title {
-  font-size: 48.83px;
-  font-family: "Fuzzy Bubbles", cursive;
+  font-size: 1.953rem;
+  font-family: 'Fuzzy Bubbles', cursive;
   font-weight: 700;
-  text-align: center;
+}
+
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
 }
 
 .content {
-  flex: 1;
+  flex: 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 75%;
-  margin: 0 auto;
   gap: 16px;
 }
 
@@ -182,37 +194,34 @@ body {
   height: 512px;
 }
 
-label,
-.aside__btn,
-.aside__input {
-  width: 100%;
-}
-
 label {
-  color: #3c486b;
+  color: #f0f0f0;
 }
 
 .aside__input {
   font-size: 16px;
   background-color: #eeeeee;
-  padding: 8px 4px;
-  border: 2px solid #3c486b;
-  border-radius: 8px;
+  padding: 4px 12px;
+  border: none;
+  border-radius: 4px;
 }
 
-.aside__btn {
+.header-right__btn {
   font-size: 16px;
   color: #f0f0f0;
   cursor: pointer;
   background-color: #f45050;
-  padding: 8px 16px;
-  border: 2px solid #3c486b;
-  border-radius: 8px;
+  padding: 4px 12px;
+  border: none;
+  border-radius: 4px;
+  transition-property: color, background-color;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
 }
 
-.main {
-  flex: 2;
-  display: flex;
+.header-right__btn:hover {
+  color: #3c486b;
+  background-color: #f9d949;
 }
 
 .grid {
@@ -227,11 +236,26 @@ label {
   border: 1px solid #d8d9da;
 }
 
-.footer {
-  padding: 16px 0;
+footer {
+  padding: 8px 0;
 }
 
 .footer__text {
   font-size: 12.8px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer__text svg {
+  transition-property: transform, fill;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+}
+
+.footer__text svg:hover {
+  transform: scale(1.25);
+  fill: #f9d949;
 }
